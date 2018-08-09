@@ -1,0 +1,30 @@
+<p>
+  test-component works!
+
+</p>
+
+
+
+
+<div class="row">
+  <div class="col-md-6">
+    <label>Name:
+      <input [(ngModel)]="person.name" placeholder="name">
+    </label>
+  </div>
+
+  <div class="col-md-12">
+    <ul class="people">
+      <li *ngFor="let person of people" (click)="onSelect(person)">
+        <span class="badge">{{person.name}}</span> {{person.surname}}
+      </li>
+    </ul>
+
+  </div>
+
+  <div class="col-md-12">
+      <h4>{{person.name}}, {{person.surname}}</h4>
+  </div>
+
+</div>
+

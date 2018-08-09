@@ -1,0 +1,12 @@
+<div class="row messages">
+  <div class="col-md-12">
+    <div *ngIf="messageService.messages.length">
+
+      <h2>Messages</h2>
+      <button class="btn btn-primary clear"
+              (click)="messageService.clear()">clear</button>
+      <div *ngFor='let message of messageService.messages'> {{message}} </div>
+
+    </div>
+  </div>
+</div>
