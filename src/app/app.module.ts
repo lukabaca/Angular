@@ -7,6 +7,7 @@ import { TestComponentComponent } from './test-component/test-component.componen
 import { FormsModule } from '@angular/forms';
 import { MessagesComponentComponent } from './messages-component/messages-component.component';
 import { AppRoutingModule } from './/app-routing.module';
+import { PersonDetailsComponent } from './person-details/person-details.component';
 
 
 @NgModule({
@@ -14,6 +15,7 @@ import { AppRoutingModule } from './/app-routing.module';
     AppComponent,
     TestComponentComponent,
     MessagesComponentComponent,
+    PersonDetailsComponent,
   ],
   imports: [
     BrowserModule,

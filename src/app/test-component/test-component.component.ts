@@ -10,24 +10,18 @@ import {PersonService} from '../Service/person.service';
 })
 export class TestComponentComponent implements OnInit {
 
+  people: Person [];
   person: Person;
 
-  people: Person [];
-
-  onSelect(person: Person): void {
-    this.person = person;
-  }
-
-  //ponizej przez parametr od razu tworzy prywatne pole personService, injection
+  // ponizej przez parametr od razu tworzy prywatne pole personService, injection
   constructor(private personService: PersonService) { }
 
   ngOnInit() {
-    this.getPerson();
     this.getPeople();
   }
 
-  getPerson(): void {
-    this.person = this.personService.getPerson();
+  getPerson(id: number): void {
+    this.personService.getPerson(id).subscribe(person => this.person = person);
   }
   getPeople(): void {
     this.personService.getPeople().subscribe(people => this.people = people);

@@ -12,24 +12,24 @@ export class PersonService {
   private person: Person;
 
   private people: Person[] = [
-        { name: 'Narco', surname: '' },
-        { name: 'Mr. Nice', surname: '' },
-        { name: 'Bombasto', surname: '' },
-        { name: 'Celeritas', surname: '' },
-        { name: 'Magneta', surname: '' },
-        { name: 'RubberMan', surname: '' },
-        { name: 'Dynama', surname: '' },
-        { name: 'Dr IQ', surname: '' },
-        { name: 'Magma', surname: '' },
-        { name: 'Tornado', surname: '' }
+        { id: 1, name: 'Narco', surname: 'gdgfdgfdgf' },
+        { id: 2, name: 'Mr. Nice', surname: '' },
+        { id: 3, name: 'Bombasto', surname: '' },
+        { id: 4, name: 'Celeritas', surname: '' },
+        { id: 5, name: 'Magneta', surname: '' },
+        { id: 6, name: 'RubberMan', surname: '' },
+        { id: 7, name: 'Dynama', surname: '' },
+        { id: 8, name: 'Dr IQ', surname: '' },
+        { id: 9, name: 'Magma', surname: '' },
+        { id: 10, name: 'Tornado', surname: '' }
     ];
   constructor(private messageService: MessageService) {
-    this.person = new Person('jan', 'kowalski');
+    this.person = new Person(2,'jan', 'kowalski');
   }
 
 
-  getPerson(): Person {
-    return this.person;
+  getPerson(id: number): Observable<Person> {
+    return of(this.people.find(person => person.id === id));
   }
 
   getPeople(): Observable<Person []> {
