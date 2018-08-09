@@ -7,9 +7,9 @@ import {PersonDetailsComponent} from './person-details/person-details.component'
 const routes: Routes = [
 
     { path: 'people', component: TestComponentComponent },
-    { path: 'detail/:id', component: PersonDetailsComponent }
+    { path: 'detail/:id', component: PersonDetailsComponent },
     // tutaj default route, jak wejdziemy od razu na strone
-     // { path: '', redirectTo: '/dashboard', pathMatch: 'full' },
+     { path: '', redirectTo: '/people', pathMatch: 'full' },
 
 ];
 
