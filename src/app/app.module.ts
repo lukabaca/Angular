@@ -6,6 +6,7 @@ import { TestComponentComponent } from './test-component/test-component.componen
 
 import { FormsModule } from '@angular/forms';
 import { MessagesComponentComponent } from './messages-component/messages-component.component';
+import { AppRoutingModule } from './/app-routing.module';
 
 
 @NgModule({
@@ -16,7 +17,8 @@ import { MessagesComponentComponent } from './messages-component/messages-compon
   ],
   imports: [
     BrowserModule,
-      FormsModule
+      FormsModule,
+      AppRoutingModule
   ],
   providers: [],
   bootstrap: [AppComponent]
