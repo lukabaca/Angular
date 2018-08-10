@@ -2,13 +2,14 @@ import { Injectable } from '@angular/core';
 import { Person } from '../Model/Person';
 import {Observable, of} from 'rxjs';
 import {MessageService} from './message.service';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root'
 })
 export class PersonService {
 
-
+  private peopleUrl = 'api/people';  // URL to web api
   private person: Person;
 
   private people: Person[] = [
@@ -23,7 +24,7 @@ export class PersonService {
         { id: 9, name: 'Magma', surname: '' },
         { id: 10, name: 'Tornado', surname: '' }
     ];
-  constructor(private messageService: MessageService) {
+  constructor(private messageService: MessageService, private http: HttpClient) {
     this.person = new Person(2,'jan', 'kowalski');
   }
 
@@ -34,7 +35,12 @@ export class PersonService {
 
   getPeople(): Observable<Person []> {
     this.messageService.add('PersonService: people');
-    return of(this.people);
+    return this.http.get<Person[]>(this.peopleUrl);
+    //return of(this.people);
+  }
+
+  private log(message: string) {
+    this.messageService.add(`PersonService: ${message}`);
   }
 
 }
