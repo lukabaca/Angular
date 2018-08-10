@@ -1,28 +1,29 @@
 
-<div class="container">
-  <div class="row">
-    <div class="col-md-12">
-      <div style="text-align:center">
-        <!--<h1>-->
-          <!--Witaj w {{ title }}!-->
-        <!--</h1>-->
-        <nav class="navbar navbar-expand-lg navbar-light bg-light ">
-          <a class="navbar-brand" href="#">Home</a>
-          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-          </button>
-          <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav">
-              <li class="nav-item active">
-                <a routerLink="/people">People</a>
-              </li>
-            </ul>
-          </div>
-        </nav>
 
-      </div>
-    </div>
+<div class="row">
+  <div class="col-md-12">
+
+      <nav class="navbar navbar-expand-lg navbar-light bg-light ">
+        <a class="navbar-brand" href="#">Home</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+              <a routerLink="/people" class="nav-link">People </a>
+            </li>
+            <li class="nav-item active">
+              <a routerLink="/other" class="nav-link">Other </a>
+            </li>
+          </ul>
+        </div>
+      </nav>
+
   </div>
 </div>
+
   <!--wyswietli ten fragment tylo gdy podamy odpowiedni url w pasku-->
 <router-outlet></router-outlet>
+
+<app-footer></app-footer>

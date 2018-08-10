@@ -14,6 +14,7 @@ import {HttpClientModule} from '@angular/common/http';
 import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
 import { InMemoryDataService } from './in-memory-data.service';
 import { OtherComponent } from './other/other.component';
+import { FooterComponent } from './common/footer/footer.component';
 
 
 @NgModule({
@@ -23,6 +24,7 @@ import { OtherComponent } from './other/other.component';
     MessagesComponentComponent,
     PersonDetailsComponent,
     OtherComponent,
+    FooterComponent,
 
   ],
   exports: [
