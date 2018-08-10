@@ -1,14 +1,31 @@
 
 <div class="row">
-  <div class="col-md-12">
-    <ul class="people">
-      <li *ngFor="let person of people">
+  <div class="col-md-8">
+    <ul class="people list-group">
+      <li *ngFor="let person of people" class="list-group-item ">
         <a routerLink="/detail/{{person.id}}">
           <span class="badge">{{person.id }} {{person.name}}</span> {{person.surname}}
         </a>
+        <button class="btn btn-primary delete" title="delete person"
+                (click)="delete(person)">x
+        </button>
       </li>
+
     </ul>
 
+  </div>
+
+  <div class="col-md-4">
+    <div>
+      <h1>Dodaj osobe</h1>
+      <label>Person name:
+        <input #personName />
+      </label>
+      <!-- (click) passes input value to add() and then clears the input -->
+      <button (click)="add(personName.value); personName.value=''">
+        add
+      </button>
+    </div>
   </div>
 
 

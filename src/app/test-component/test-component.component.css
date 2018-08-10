@@ -2,3 +2,7 @@
     font-size: 25px;
     font-weight: 100;
 }
+.list-group-item {
+  width: 20%;
+  margin-left: 15px;
+}
