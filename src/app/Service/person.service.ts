@@ -16,12 +16,9 @@ const httpOptions = {
 })
 export class PersonService {
 
-  private peopleUrl = 'api/people';  // URL to web api
   // tutaj nazwa po api/ to jest nazwa kolekcji w in-memory-data-service (w tym przypadku people)
-  private person: Person;
+  private peopleUrl = 'api/people';  // URL to web api
 
-
-  private people: Person[];
 
   constructor(private messageService: MessageService, private http: HttpClient) {
     // this.person = new Person(2,'jan', 'kowalski');
