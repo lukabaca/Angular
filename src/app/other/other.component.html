@@ -4,5 +4,67 @@
     <h1>Welcome on other page !</h1>
   </div>
 
+  <div class="col-md-12 mainHeader">
+    <button (click)="onClickMe()">Click me!</button>
+
+    <span>{{clickMsg}}</span>
+  </div>
+  <div class="col-md-5">
+    <h2>Person form</h2>
+    <form #personForm="ngForm" (ngSubmit)="onSubmit()">
+      <div class="form-group">
+        <label for="name">Name</label>
+        <input type="text" class="form-control" id="name"
+               required
+               [(ngModel)]="person.name" name="name"
+               #name="ngModel"
+        >
+
+
+      </div>
+
+
+      <div class="form-group">
+        <label for="surname">Surname</label>
+        <input type="text" class="form-control" id="surname"
+               required
+               [(ngModel)]="person.surname" name="surname"
+               #surname="ngModel"
+        >
+      </div>
+
+
+      <div class="form-group">
+        <label>Gender</label><br>
+      </div>
+
+
+          <!--<input type="radio" [(ng-model)]="person.gender" ng-value="genders">-->
+          <!--<span>Men</span>-->
+
+          <!--<input type="radio" [(ng-model)]="person.gender" ng-value="specialValue">-->
+          <!--<span>Women</span>-->
+      <button type="submit" class="btn btn-default" (click)="personForm.reset()">New Person</button>
+    </form>
+
+    <p>Model: {{diagnostic}}</p>
+
+
+  </div>
+
+
+  <!--<input type="text" class="form-control" [ngModel]="test">-->
+
+
+  <div class="col-md-8">
+    <ul class="people list-group">
+      <li *ngFor="let person of people" class="list-group-item ">
+        <p class="badge">{{person.id }} {{person.name}}  {{person.surname}}</p>
+      </li>
+
+    </ul>
+
+  </div>
 </div>
+
 

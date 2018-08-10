@@ -12,7 +12,7 @@ const routes: Routes = [
     { path: 'detail/:id', component: PersonDetailsComponent },
     { path: 'other', component: OtherComponent },
     // tutaj default route, jak wejdziemy od razu na strone
-     { path: '', redirectTo: '/people', pathMatch: 'full' },
+    // { path: '', redirectTo: '/people', pathMatch: 'full' },
 
 ];
 
