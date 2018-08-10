@@ -67,16 +67,23 @@ export class PersonService {
   }
 
   /** POST: add a new hero to the server */
-  addHero (person: Person): Observable<Person> {
+  addPerson (person: Person): Observable<Person> {
     return this.http.post<Person>(this.peopleUrl, person, httpOptions).pipe(
       // tap((person: Person) => this.log(`added hero w/ id=${person.id}`)),
       catchError(this.handleError<Person>('addPerson'))
     );
   }
 
+  updatePerson (person: Person): Observable<Person> {
+    return this.http.put(this.peopleUrl, person, httpOptions).pipe(
+      // tap(_ => this.log(`updated hero id=${hero.id}`)),
+      catchError(this.handleError<any>('updatePerson'))
+    );
+  }
+
 
   /** DELETE: delete the hero from the server */
-  deleteHero (person: Person | number): Observable<Person> {
+  deletePerson (person: Person | number): Observable<Person> {
     const id = typeof person === 'number' ? person : person.id;
     const url = `${this.peopleUrl}/${id}`;
 

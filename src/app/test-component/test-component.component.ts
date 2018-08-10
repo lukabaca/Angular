@@ -30,7 +30,7 @@ export class TestComponentComponent implements OnInit {
   add(name: string): void {
     name = name.trim();
     if (!name) { return; }
-    this.personService.addHero({ name } as Person)
+    this.personService.addPerson({ name } as Person)
       .subscribe(person => {
         this.people.push(person);
       });
@@ -38,7 +38,7 @@ export class TestComponentComponent implements OnInit {
 
   delete(person: Person): void {
     this.people = this.people.filter(h => h !== person);
-    this.personService.deleteHero(person).subscribe();
+    this.personService.deletePerson(person).subscribe();
   }
 }
 

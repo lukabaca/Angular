@@ -3,4 +3,14 @@
   <h1>Person details</h1>
   <p>Name: {{person.name}}</p>
   <p>Surname: {{person.surname}}</p>
+
+  <div>
+    <h1>Edytuj osobe: </h1>
+
+    <label>Person name:
+      <input #personName value="{{person.name}}"/>
+    </label>
+    <!-- (click) passes input value to add() and then clears the input -->
+    <button (click)="save()">Zapisz</button>
+  </div>
 </div>

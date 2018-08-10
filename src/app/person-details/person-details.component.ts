@@ -36,4 +36,12 @@ export class PersonDetailsComponent implements OnInit {
 
   }
 
+  save(): void {
+    this.personService.updatePerson(this.person)
+      .subscribe(() => this.goBack());
+  }
+
+  goBack(): void {
+    this.location.back();
+  }
 }
