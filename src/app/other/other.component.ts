@@ -13,15 +13,31 @@ import { FormArray } from '@angular/forms';
 })
 export class OtherComponent implements OnInit {
 
+
   personForm = this.formBuilder.group({
 
-    name: ['', Validators.required],
-    surname: ['', Validators.required],
+    name: ['', [Validators.required, Validators.minLength(3), Validators.pattern('[a-zA-Z ]*')]],
+    surname: ['', [Validators.required, Validators.minLength(3), Validators.pattern('[a-zA-Z ]*')]],
     gender: ['', Validators.required],
     aliases: this.formBuilder.array([
         this.formBuilder.control('')
       ])
 });
+
+  person_validation_messages = {
+
+    'name': [
+      {type: 'required', message: 'Name is required'},
+      {type: 'minlength', message: 'Name must be at least 3 characters'},
+      {type: 'pattern', message: 'Name must only contain letters'}
+    ],
+    'surname': [
+      {type: 'required', message: 'Surname is required'},
+      {type: 'minlength', message: 'Surname must be at least 3 characters'},
+      {type: 'pattern', message: 'Surname must only contain letters'}
+    ]
+  };
+
 
 
   clickMsg = '';
@@ -34,14 +50,14 @@ export class OtherComponent implements OnInit {
 
   genders = {
     men: 'Men',
-    women: 'Woman'
+    woman: 'Woman'
   };
 
 
   onSubmit() {
 
-    console.warn(this.personForm.value.name);
-    console.warn(this.personForm.value.surname);
+    // console.warn(this.personForm.value.name);
+    // console.warn(this.personForm.value.surname);
 
     if (this.personForm.valid) {
 
@@ -64,8 +80,15 @@ export class OtherComponent implements OnInit {
   }
 
   constructor(private formBuilder: FormBuilder) {
+
     // this.person = new Person(1, 'a', 'b');
   }
+
+  get name() {
+    return this.personForm.get('name').touched;
+   // return this.personForm.valid;
+  }
+
 
   ngOnInit() {
   }

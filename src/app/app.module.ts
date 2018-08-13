@@ -16,6 +16,10 @@ import { InMemoryDataService } from './in-memory-data.service';
 import { OtherComponent } from './other/other.component';
 import { FooterComponent } from './common/footer/footer.component';
 import { NavbarComponent } from './common/navbar/navbar.component';
+import { DynamicFormComponent } from './dynamic-form/dynamic-form.component';
+import { DynamicFormQuestionComponent } from './dynamic-form-question/dynamic-form-question.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {MatFormFieldModule} from '@angular/material/form-field';
 
 
 @NgModule({
@@ -26,7 +30,9 @@ import { NavbarComponent } from './common/navbar/navbar.component';
     PersonDetailsComponent,
     OtherComponent,
     FooterComponent,
-    NavbarComponent
+    NavbarComponent,
+    DynamicFormComponent,
+    DynamicFormQuestionComponent
   ],
   exports: [
       MatButtonModule,
@@ -43,11 +49,16 @@ import { NavbarComponent } from './common/navbar/navbar.component';
       HttpClientInMemoryWebApiModule,
       HttpClientInMemoryWebApiModule.forRoot(
       InMemoryDataService, { dataEncapsulation: false }
-      )
+      ),
+      BrowserAnimationsModule,
+      MatFormFieldModule
   ],
   providers: [],
   bootstrap: [AppComponent]
 })
+
+
+
 export class AppModule { }
 
 

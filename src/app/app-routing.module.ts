@@ -4,6 +4,7 @@ import {RouterModule, Routes} from '@angular/router';
 import {TestComponentComponent} from './test-component/test-component.component';
 import {PersonDetailsComponent} from './person-details/person-details.component';
 import {OtherComponent} from './other/other.component';
+import {DynamicFormComponent} from './dynamic-form/dynamic-form.component';
 
 const routes: Routes = [
 
@@ -11,6 +12,7 @@ const routes: Routes = [
     { path: 'people', component: TestComponentComponent },
     { path: 'detail/:id', component: PersonDetailsComponent },
     { path: 'other', component: OtherComponent },
+    { path: 'dynamicForm', component: DynamicFormComponent }
     // tutaj default route, jak wejdziemy od razu na strone
     // { path: '', redirectTo: '/people', pathMatch: 'full' },
 

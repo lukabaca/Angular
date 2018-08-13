@@ -9,14 +9,26 @@
 
     <span>{{clickMsg}}</span>
   </div>
+
+
+
   <div class="col-md-5">
     <h2>Person form</h2>
-    <form [formGroup]="personForm" (ngSubmit)="onSubmit()">
+    <form [formGroup]="personForm" (submit)="onSubmit()">
       <div class="form-group">
         <label for="name">Name</label>
 
 
         <input type="text" class="form-control" formControlName="name" id="name" required>
+        <mat-error *ngFor="let validation of person_validation_messages.name">
+            <p *ngIf="personForm.get('name').hasError(validation.type) && (personForm.get('name').dirty
+            || personForm.get('name').touched)">{{validation.message}}</p>
+
+        </mat-error>
+
+        <!--<div *ngIf="name.errors.minlength">-->
+          <!--Name must be at least 4 characters long.-->
+        <!--</div>-->
 
       </div>
 
@@ -25,6 +37,12 @@
 
 
         <input type="text" class="form-control" formControlName="surname" id="surname" required>
+        <mat-error *ngFor="let validation of person_validation_messages.surname">
+          <p *ngIf="personForm.get('surname').hasError(validation.type) && (personForm.get('surname').dirty
+            || personForm.get('surname').touched)">{{validation.message}}</p>
+
+        </mat-error>
+
 
       </div>
 
@@ -39,8 +57,8 @@
 
 
       <div class="radio">
-        <label><input type="radio" name="radio" value="Men" formControlName="gender" required>Men</label>
-        <label><input type="radio" name="radio" value="Women" formControlName="gender">Woman</label>
+        <label><input type="radio"  value="{{genders.men}}" formControlName="gender" required>Men</label>
+        <label><input type="radio"  value="{{genders.woman}}" formControlName="gender">Woman</label>
       </div>
 
 
@@ -53,12 +71,13 @@
 
 
     </form>
+    <p>{{name}}</p>
 
     <!--<p>Model: {{diagnostic}}</p>-->
 
 
   </div>
-  
+
   <div class="col-md-8">
     <ul class="people list-group">
       <li *ngFor="let person of people" class="list-group-item ">
