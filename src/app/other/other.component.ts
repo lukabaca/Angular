@@ -1,5 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import {Person} from '../Model/Person';
+import {FormControl} from '@angular/forms';
+import { FormGroup} from '@angular/forms';
+import { FormBuilder } from '@angular/forms';
+import { Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-other',
@@ -7,6 +11,14 @@ import {Person} from '../Model/Person';
   styleUrls: ['./other.component.css']
 })
 export class OtherComponent implements OnInit {
+
+  personForm = this.formBuilder.group({
+
+    name: ['', Validators.required],
+    surname: [''],
+
+});
+
 
   clickMsg = '';
   person: Person;
@@ -22,10 +34,11 @@ export class OtherComponent implements OnInit {
 
   onSubmit() {
     this.submitted = true;
-    this.people.push(this.person);
+    console.warn(this.personForm.value);
+    // this.people.push(this.person);
   }
 
-  constructor() {
+  constructor(private formBuilder: FormBuilder) {
     // this.person = new Person(1, 'a', 'b');
   }
 

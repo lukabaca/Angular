@@ -3,7 +3,7 @@
 import { AppComponent } from './app.component';
 import { TestComponentComponent } from './test-component/test-component.component';
 
-import { FormsModule } from '@angular/forms';
+import {FormControl, FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { MessagesComponentComponent } from './messages-component/messages-component.component';
 import { AppRoutingModule } from './/app-routing.module';
 import { PersonDetailsComponent } from './person-details/person-details.component';
@@ -26,8 +26,7 @@ import { NavbarComponent } from './common/navbar/navbar.component';
     PersonDetailsComponent,
     OtherComponent,
     FooterComponent,
-    NavbarComponent,
-
+    NavbarComponent
   ],
   exports: [
       MatButtonModule,
@@ -39,6 +38,7 @@ import { NavbarComponent } from './common/navbar/navbar.component';
       AppRoutingModule,
       MatButtonModule,
       MatCheckboxModule,
+      ReactiveFormsModule,
       HttpClientModule,
       HttpClientInMemoryWebApiModule,
       HttpClientInMemoryWebApiModule.forRoot(
