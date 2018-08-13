@@ -4,24 +4,19 @@
     <h1>Welcome on other page !</h1>
   </div>
 
-  <div class="col-md-12 mainHeader">
-    <button (click)="onClickMe()">Click me!</button>
-
-    <span>{{clickMsg}}</span>
-  </div>
-
-
 
   <div class="col-md-5 formArea">
-    <h2>Person form</h2>
+    <mat-card>
+      <mat-card-title>
+        Person form
+      </mat-card-title>
     <form [formGroup]="personForm" (submit)="onSubmit()">
       <div class="form-group">
-        <label for="name">Name</label>
+        <mat-card-subtitle for="name">Name</mat-card-subtitle>
 
-
-        <input type="text" class="form-control" formControlName="name" id="name" required>
-        <mat-error *ngFor="let validation of person_validation_messages.name">
-            <p *ngIf="personForm.get('name').hasError(validation.type) && (personForm.get('name').dirty
+        <input matInput type="text" class="form-control" formControlName="name" id="name" required>
+        <mat-error  *ngFor="let validation of person_validation_messages.name">
+            <p class="errorMessage" *ngIf="personForm.get('name').hasError(validation.type) && (personForm.get('name').dirty
             || personForm.get('name').touched)">{{validation.message}}</p>
 
         </mat-error>
@@ -29,11 +24,11 @@
       </div>
 
       <div class="form-group">
-        <label for="name">Surname</label>
+        <mat-card-subtitle for="name">Surname</mat-card-subtitle>
 
         <input type="text" class="form-control" formControlName="surname" id="surname" required>
-        <mat-error *ngFor="let validation of person_validation_messages.surname">
-          <p *ngIf="personForm.get('surname').hasError(validation.type) && (personForm.get('surname').dirty
+        <mat-error  *ngFor="let validation of person_validation_messages.surname">
+          <p class="errorMessage" *ngIf="personForm.get('surname').hasError(validation.type) && (personForm.get('surname').dirty
             || personForm.get('surname').touched)">{{validation.message}}</p>
 
         </mat-error>
@@ -42,7 +37,7 @@
 
 
       <div class="form-group">
-        <label>Gender</label><br>
+        <mat-card-subtitle for="name">Gender</mat-card-subtitle>
       </div>
 
 
@@ -52,7 +47,7 @@
       </div>
 
       <mat-error *ngFor="let validation of person_validation_messages.gender">
-        <p *ngIf="personForm.get('gender').hasError(validation.type)">{{validation.message}}</p>
+        <p class="errorMessage" *ngIf="personForm.get('gender').hasError(validation.type)">{{validation.message}}</p>
 
       </mat-error>
 
@@ -67,10 +62,11 @@
 
     </form>
 
-
+    </mat-card>
   </div>
 
-  <div class="col-md-8">
+
+  <div class="col-md-6 peopleListArea">
     <ul class="people list-group">
       <li *ngFor="let person of people" class="list-group-item ">
         <p class="badge">{{person.id }} {{person.name}}  {{person.surname}} {{person.gender}}</p>
@@ -79,6 +75,9 @@
     </ul>
 
   </div>
+
+
 </div>
+
 
 

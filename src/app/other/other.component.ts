@@ -64,15 +64,15 @@ export class OtherComponent implements OnInit {
       this.requiredFieldsMsg = '';
       this.submitted = true;
 
-      const name = this.personForm.value.name;
-      const surname = this.personForm.value.surname;
-      const gender = this.personForm.value.gender;
+      const name = this.personForm.value.name.trim().toLowerCase();
+      const surname = this.personForm.value.surname.trim().toLowerCase();
+      const gender = this.personForm.value.gender.trim().toLowerCase();
 
       this.person = new Person(1, name, surname, gender);
 
       this.people.push(this.person);
 
-      this.personForm.reset();
+      //this.personForm.reset();
     } else {
       this.requiredFieldsMsg = 'Prosze wypelnic wszystkie pola';
     }
@@ -85,7 +85,9 @@ export class OtherComponent implements OnInit {
   }
 
   get name() {
-    return this.personForm.get('name').touched;
+    let string = 'JAHSDASD';
+    return string.toLowerCase();
+    //return this.personForm.get('name').touched;
    // return this.personForm.valid;
   }
 

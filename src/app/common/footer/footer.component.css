@@ -1,7 +1,8 @@
 footer{
+  z-index: 999;
   background-color: lightgrey !important;
-  position: absolute;
+  position: fixed;
   bottom: 0px;
   width: 100%;
+  height: 10%;
 }
-

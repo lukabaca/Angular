@@ -21,6 +21,7 @@ import { DynamicFormQuestionComponent } from './dynamic-form-question/dynamic-fo
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatRadioModule} from '@angular/material/radio';
+import {MatCardModule} from '@angular/material/card';
 
 
 @NgModule({
@@ -40,6 +41,7 @@ import {MatRadioModule} from '@angular/material/radio';
       MatCheckboxModule
   ],
   imports: [
+      MatCardModule,
       BrowserModule,
       FormsModule,
       AppRoutingModule,

@@ -2,9 +2,20 @@
   font-size: 20px !important;
   margin-bottom: 30px;
   border-bottom: 1px solid;
-//background-color: azure !important;
+  /*background-color: azure !important;*/
+  width: 100% !important;
 }
 
 .nav-link:hover {
   color: gray !important;
+}
+
+.navbarArea {
+  padding-left: 0px;
+  padding-right: 0px;
+}
+
+.navbarRow {
+  margin-left: 0px;
+  margin-right: 0px;
 }

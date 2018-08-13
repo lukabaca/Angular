@@ -1,13 +1,15 @@
 @import '~@angular/material/prebuilt-themes/deeppurple-amber.css';
-body { margin: 0; font-family: 'Roboto', sans-serif; }
 
 html, body {
   height: 100%;
-
-  overflow: hidden;
+  width: 100%;
+  /*overflow: hidden;*/
 }
 
-
-
-html, body { height: 100%; }
 body { margin: 0; font-family: 'Roboto', sans-serif; }
+
+
+.row {
+  margin-left: 0px;
+  margin-right: 0px;
+}
