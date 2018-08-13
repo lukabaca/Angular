@@ -35,6 +35,9 @@ export class OtherComponent implements OnInit {
       {type: 'required', message: 'Surname is required'},
       {type: 'minlength', message: 'Surname must be at least 3 characters'},
       {type: 'pattern', message: 'Surname must only contain letters'}
+    ],
+    'gender': [
+      {type: 'required', message: 'Please select gender'},
     ]
   };
 
@@ -55,9 +58,6 @@ export class OtherComponent implements OnInit {
 
 
   onSubmit() {
-
-    // console.warn(this.personForm.value.name);
-    // console.warn(this.personForm.value.surname);
 
     if (this.personForm.valid) {
 

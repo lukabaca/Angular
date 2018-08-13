@@ -20,6 +20,7 @@ import { DynamicFormComponent } from './dynamic-form/dynamic-form.component';
 import { DynamicFormQuestionComponent } from './dynamic-form-question/dynamic-form-question.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatFormFieldModule} from '@angular/material/form-field';
+import {MatRadioModule} from '@angular/material/radio';
 
 
 @NgModule({
@@ -51,7 +52,8 @@ import {MatFormFieldModule} from '@angular/material/form-field';
       InMemoryDataService, { dataEncapsulation: false }
       ),
       BrowserAnimationsModule,
-      MatFormFieldModule
+      MatFormFieldModule,
+      MatRadioModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -12,7 +12,7 @@
 
 
 
-  <div class="col-md-5">
+  <div class="col-md-5 formArea">
     <h2>Person form</h2>
     <form [formGroup]="personForm" (submit)="onSubmit()">
       <div class="form-group">
@@ -26,15 +26,10 @@
 
         </mat-error>
 
-        <!--<div *ngIf="name.errors.minlength">-->
-          <!--Name must be at least 4 characters long.-->
-        <!--</div>-->
-
       </div>
 
       <div class="form-group">
         <label for="name">Surname</label>
-
 
         <input type="text" class="form-control" formControlName="surname" id="surname" required>
         <mat-error *ngFor="let validation of person_validation_messages.surname">
@@ -43,37 +38,34 @@
 
         </mat-error>
 
-
       </div>
 
-      <!--<p *ngIf="submitted as true">-->
-        <!--Formularz zostal wyslany-->
-
-      <!--</p>-->
 
       <div class="form-group">
         <label>Gender</label><br>
       </div>
 
 
-      <div class="radio">
-        <label><input type="radio"  value="{{genders.men}}" formControlName="gender" required>Men</label>
-        <label><input type="radio"  value="{{genders.woman}}" formControlName="gender">Woman</label>
+      <div>
+        <label id="menGenderLabel"><input type="radio" [value]="genders.men" formControlName="gender"  required/>{{genders.men}}</label>
+        <label><input type="radio"  [value]="genders.woman" formControlName="gender" required/>{{genders.woman}}</label>
       </div>
 
+      <mat-error *ngFor="let validation of person_validation_messages.gender">
+        <p *ngIf="personForm.get('gender').hasError(validation.type)">{{validation.message}}</p>
+
+      </mat-error>
+
+      <br>
 
       <button type="submit" class="btn btn-default" [disabled]="!personForm.valid">Add new person</button>
+
 
       <p id="fillFields">
         {{ requiredFieldsMsg}}
       </p>
 
-
-
     </form>
-    <p>{{name}}</p>
-
-    <!--<p>Model: {{diagnostic}}</p>-->
 
 
   </div>
