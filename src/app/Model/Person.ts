@@ -5,10 +5,11 @@ export class Person {
     private _gender: string;
 
 
-  constructor(id: number, name: string, surname: string) {
+  constructor(id: number, name: string, surname: string, gender: string) {
         this._id = id;
         this._name = name;
         this._surname = surname;
+        this._gender = gender;
     }
 
   get id(): number {

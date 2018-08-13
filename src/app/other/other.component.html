@@ -16,7 +16,7 @@
         <label for="name">Name</label>
 
 
-        <input type="text" formControlName="name" id="name" required>
+        <input type="text" class="form-control" formControlName="name" id="name" required>
 
       </div>
 
@@ -24,53 +24,45 @@
         <label for="name">Surname</label>
 
 
-        <input type="text" formControlName="surname" id="surname">
+        <input type="text" class="form-control" formControlName="surname" id="surname" required>
 
       </div>
 
-      <p>
-        Form Status: {{ personForm.status }}
-      </p>
+      <!--<p *ngIf="submitted as true">-->
+        <!--Formularz zostal wyslany-->
+
+      <!--</p>-->
 
       <div class="form-group">
         <label>Gender</label><br>
       </div>
 
 
-          <!--<input type="radio" [(ng-model)]="person.gender" ng-value="genders">-->
-          <!--<span>Men</span>-->
+      <div class="radio">
+        <label><input type="radio" name="radio" value="Men" formControlName="gender" required>Men</label>
+        <label><input type="radio" name="radio" value="Women" formControlName="gender">Woman</label>
+      </div>
 
-          <!--<input type="radio" [(ng-model)]="person.gender" ng-value="specialValue">-->
-          <!--<span>Women</span>-->
-      <button type="submit" class="btn btn-default" [disabled]="!personForm.valid">New Person</button>
 
-      <!--<div formArrayName="aliases">-->
-        <!--<h3>Aliases</h3> <button (click)="addAlias()">Add Alias</button>-->
+      <button type="submit" class="btn btn-default" [disabled]="!personForm.valid">Add new person</button>
 
-        <!--<div *ngFor="let address of aliases.controls; let i=index">-->
-          <!--&lt;!&ndash; The repeated alias template &ndash;&gt;-->
-          <!--<label>-->
-            <!--Alias:-->
-            <!--<input type="text" [formControlName]="i">-->
-          <!--</label>-->
-        <!--</div>-->
-      <!--</div>-->
+      <p id="fillFields">
+        {{ requiredFieldsMsg}}
+      </p>
+
+
 
     </form>
 
-    <p>Model: {{diagnostic}}</p>
+    <!--<p>Model: {{diagnostic}}</p>-->
 
 
   </div>
-
-
-  <!--<input type="text" class="form-control" [ngModel]="test">-->
-
-
+  
   <div class="col-md-8">
     <ul class="people list-group">
       <li *ngFor="let person of people" class="list-group-item ">
-        <p class="badge">{{person.id }} {{person.name}}  {{person.surname}}</p>
+        <p class="badge">{{person.id }} {{person.name}}  {{person.surname}} {{person.gender}}</p>
       </li>
 
     </ul>

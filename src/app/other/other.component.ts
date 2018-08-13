@@ -16,7 +16,8 @@ export class OtherComponent implements OnInit {
   personForm = this.formBuilder.group({
 
     name: ['', Validators.required],
-    surname: [''],
+    surname: ['', Validators.required],
+    gender: ['', Validators.required],
     aliases: this.formBuilder.array([
         this.formBuilder.control('')
       ])
@@ -27,28 +28,39 @@ export class OtherComponent implements OnInit {
   person: Person;
   people: Person[] = [];
 
+  requiredFieldsMsg = '';
+
   submitted = false;
 
   genders = {
     men: 'Men',
-    women: 'Women'
+    women: 'Woman'
   };
 
 
   onSubmit() {
-    this.submitted = true;
 
     console.warn(this.personForm.value.name);
     console.warn(this.personForm.value.surname);
 
-    const name = this.personForm.value.name;
-    const surname = this.personForm.value.surname;
+    if (this.personForm.valid) {
 
-    this.person = new Person(1, name, surname);
+      this.requiredFieldsMsg = '';
+      this.submitted = true;
 
-    this.people.push(this.person);
+      const name = this.personForm.value.name;
+      const surname = this.personForm.value.surname;
+      const gender = this.personForm.value.gender;
 
-    this.personForm.reset();
+      this.person = new Person(1, name, surname, gender);
+
+      this.people.push(this.person);
+
+      this.personForm.reset();
+    } else {
+      this.requiredFieldsMsg = 'Prosze wypelnic wszystkie pola';
+    }
+
   }
 
   constructor(private formBuilder: FormBuilder) {
@@ -74,7 +86,7 @@ export class OtherComponent implements OnInit {
   }
 
   newPerson() {
-    this.person = new Person(1, '', '');
+    this.person = new Person(1, '', '', '');
 
   }
 }
